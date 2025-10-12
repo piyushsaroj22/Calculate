@@ -34,3 +34,7 @@ if (localStorage.getItem("theme") === "dark") {
     document.body.classList.add("dark");
     themeSwitch.checked = true;
 }
+
+function backspace() {
+    display.value = display.value.slice(0, -1);
+}
