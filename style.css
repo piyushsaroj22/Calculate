@@ -240,3 +240,25 @@ body.dark .clear:active {
     background: #a52824;
     transform: scale(0.97);
 }
+
+footer {
+    margin-top: 16px;
+    text-align: center;
+    justify-content: center;
+    color: #8b949e;
+    height: 0vh;
+}
+
+footer div {
+    color: var(--accent);
+    text-align: right;
+}
+
+footer div a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+footer div a:hover {
+    text-decoration: underline;
+}
