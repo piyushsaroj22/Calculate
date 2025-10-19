@@ -19,6 +19,28 @@ body {
     right: 20px;
 }
 
+.mode-toggle {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.toggle {
+    padding: 8px 16px;
+    background: #58a6ff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background 0.2s;
+    margin-top: -7px;
+}
+
+.toggle:hover {
+    background: #1c7ed6;
+}
+
 .switch {
     position: relative;
     display: inline-block;
@@ -97,7 +119,19 @@ input:checked+.slider:before {
 .buttons {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 12px;
+    gap: 7px;
+}
+
+.buttons.normal {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.calculator.normal {
+    width: 280px;
+}
+
+.hidden {
+    display: none;
 }
 
 button {
@@ -154,6 +188,18 @@ button:active {
 
 .clear:active {
     background: #c0392b;
+}
+
+.scientific.sci-only {
+    background: #005f99;
+}
+
+.scientific.sci-only:hover {
+    background: #007acc;
+}
+
+.scientific.sci-only:active {
+    background: #004080;
 }
 
 
@@ -239,6 +285,14 @@ body.dark .clear:hover {
 body.dark .clear:active {
     background: #a52824;
     transform: scale(0.97);
+}
+
+body.dark .toggle {
+    background: #238636;
+}
+
+body.dark .toggle:hover {
+    background: #2ea043;
 }
 
 footer {
