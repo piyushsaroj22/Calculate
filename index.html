@@ -16,22 +16,77 @@
       </label>
     </div>
 
-    <div class="calculator">
-        <input type="text" class="display" id="display" disabled />
-        <div class="buttons">
-            <button onclick="append('7')">7</button>
-            <button onclick="append('8')">8</button>
-            <button onclick="append('9')">9</button>
+    <div class="mode-toggle">
+        <button class="toggle" onclick="toggleMode()">Scientific Mode</button>
+    </div>
+
+    <div class="calculator" id="calculator">
+        <input type="text" class="display" id="display" readonly />
+        <div class="buttons" id="buttons">
+            <!-- Scientific Buttons -->
+            <button class="scientific sci-only" onclick="scientificFunction('sin')">
+          sin
+        </button>
+            <button class="scientific sci-only" onclick="scientificFunction('cos')">
+          cos
+        </button>
+            <button class="scientific sci-only" onclick="scientificFunction('tan')">
+          tan
+        </button>
+            <button class="scientific sci-only" onclick="scientificFunction('log')">
+          log
+        </button>
+            <button class="scientific sci-only" onclick="scientificFunction('pow')">
+          x²
+        </button>
+            <button class="scientific sci-only" onclick="scientificFunction('sqrt')">
+          √
+        </button>
+            <button class="scientific sci-only" onclick="scientificFunction('abs')">
+          |x|
+        </button>
+            <button class="scientific sci-only" onclick="scientificFunction('fact')">
+          x!
+        </button>
+            <button class="scientific sci-only" onclick="appendToDisplay('Math.PI')">
+          π
+        </button>
+            <button class="scientific sci-only" onclick="appendToDisplay('Math.E')">
+          e
+        </button>
+            <button class="scientific sci-only" onclick="appendToDisplay('(')">
+          (
+        </button>
+            <button class="scientific sci-only" onclick="appendToDisplay(')')">
+          )
+        </button>
+            <button class="scientific sci-only" onclick="scientificFunction('ln')">
+          ln
+        </button>
+            <button class="scientific sci-only" onclick="scientificFunction('exp')">
+          exp
+        </button>
+            <button class="scientific sci-only" onclick="scientificFunction('deg')">
+          °
+        </button>
+            <button class="scientific sci-only" onclick="scientificFunction('rad')">
+          rad
+        </button>
+
+            <!-- Normal Buttons -->
+            <button onclick="append('7')" id="seven">7</button>
+            <button onclick="append('8')" id="eight">8</button>
+            <button onclick="append('9')" id="nine">9</button>
             <button class="operator" onclick="backspace()">⌫</button>
 
-            <button onclick="append('4')">4</button>
-            <button onclick="append('5')">5</button>
-            <button onclick="append('6')">6</button>
+            <button onclick="append('4')" id="four">4</button>
+            <button onclick="append('5')" id="five">5</button>
+            <button onclick="append('6')" id="six">6</button>
             <button class="operator" onclick="append('+')">+</button>
 
-            <button onclick="append('1')">1</button>
-            <button onclick="append('2')">2</button>
-            <button onclick="append('3')">3</button>
+            <button onclick="append('1')" id="one">1</button>
+            <button onclick="append('2')" id="two">2</button>
+            <button onclick="append('3')" id="three">3</button>
             <button class="operator" onclick="append('-')">−</button>
 
             <button onclick="append('0')">0</button>
@@ -40,9 +95,9 @@
             <button class="operator" onclick="append('*')">×</button>
 
             <button class="clear" onclick="clearDisplay()">C</button>
-
-            <button class="equal" onclick="calculate()">=</button>
+            <button class="equal" id="equals" onclick="calculate()">=</button>
         </div>
+
         <footer>
             <div>
                 <a href="https://www.linkedin.com/in/piyush-saroj-7b024a345/">Created by Piyush Saroj</a
@@ -50,6 +105,22 @@
         </div>
       </footer>
     </div>
+    <script>
+      // Keyboard input support
+      document.addEventListener("keydown", function (event) {
+        const key = event.key;
+        const validKeys = "0123456789+-*/.=()";
+        if (validKeys.includes(key)) {
+          append(key);
+        } else if (key === "Enter") {
+          calculate();
+        } else if (key === "Backspace") {
+          backspace();
+        } else if (key.toLowerCase() === "c") {
+          clearDisplay();
+        }
+      });
+    </script>
     <script src="script.js"></script>
   </body>
 </html>
